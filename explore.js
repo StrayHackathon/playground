@@ -14,6 +14,10 @@ hospitals = [
 {
 	name: "ddd",
 	address: "台北市汀州路三段100號"
+},
+{
+	name: "eee",
+	address: "高雄市凱旋三路1號"
 }
 ];
 
@@ -25,6 +29,9 @@ function centerOnCurrentLocation(map) {
 			initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			map.setCenter(initialLocation);
 		});
+	}
+	else {
+		alert("Your browser is not supported.");
 	}
 }
 
