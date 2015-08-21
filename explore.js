@@ -38,17 +38,11 @@ function centerOnCurrentLocation(map) {
 // initilaize Google Map
 function initMap() {
 	var map = new google.maps.Map(document.getElementById('map'), {
-		zoom: 14,
+		zoom: 16,
 		center: {lat: 25.03, lng: 121.30}
 	});
-	
 	centerOnCurrentLocation(map);
-	
-	var n = hospitals.length;
-	for(var i = 0; i < n; ++i) {
-		var hospital = hospitals[i];
-		markAddress(map, hospital.address);
-	}
+	window.map = map;
 }
 
 // query GeoCode of the specified address and call callback() after it's finished.
@@ -77,3 +71,10 @@ function markAddress(map, address) {
   });
 }
 
+function markSites(map, sites) {
+	var n = sites.length;
+	for(var i = 0; i < n; ++i) {
+		var site = sites[i];
+		markAddress(map, site.address);
+	}
+}
